@@ -1,0 +1,125 @@
+.cardStyle{
+  width: 18rem;
+  margin: 1rem;
+ }
+
+ .table-image{
+  width: 2.5rem;
+ }
+
+ .table-image-up{
+  width: 4rem;
+  margin: 0.4rem;
+  border-radius: 0.3rem;
+  border: 1px solid;
+ }
+ 
+
+ .cart-products{
+  width: 70%;
+ }
+ 
+ .order-container {
+  margin-bottom: 1.3rem;
+ }
+
+ .order-active {
+  display: flex;
+  justify-content: space-between;
+ }
+
+.form-card {
+  padding: 2rem;
+  border: 1px solid;
+  border-radius: 1rem;
+  width: 40%;
+}
+
+ .mmyy {
+  width: 3rem;
+ }
+
+ .spaces {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+ }
+
+ .form-cont {
+  align-content: center;
+ }
+
+ .payment-container {
+  border: 1px solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 15%;
+  text-align: center;
+ }
+
+ footer {
+  margin-top: 5rem;
+ }
+
+ .back-btn{
+  margin-bottom: 1rem;
+ }
+
+ .pad {
+  margin-bottom: 2rem;
+ }
+
+ .topmrg {
+  margin-top: 1rem;
+ }
+
+ .cat {
+  width: 40%;
+ }
+
+ h6 {
+  margin-bottom: 5px;
+ }
+
+ label, input, button {
+  margin: 10px;
+  padding: 5px;
+}
+
+.searchField {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.record-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inline-head {
+  display: inline;
+}
+
+.ibtn {
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+}
+
+.red {
+  color: red;
+}
+
+.list-container-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.loginForm {
+  text-align: center;
+}
+
+.btn-spacer {
+  margin-right: 20px;
+}

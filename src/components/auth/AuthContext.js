@@ -14,7 +14,7 @@ export default function AuthProvider({children}) {
         const baToken = 'Basic ' + window.btoa(username+":"+password)
         try {
             const response = await executeBasicAuthService(token, {username, password})
-            if(response.status===200){
+            if(response.status===201){
                 //Intercept and append auth token to every apiClient request
                 apiClient.interceptors.request.use((config) => {config.headers.Authorization = baToken; return config});
                 
@@ -22,10 +22,7 @@ export default function AuthProvider({children}) {
                 .then( (response) => { setUser(response.data); setAuthenticated(true); 
                     setToken(baToken); } )
                 .catch(error => console.log(error))
-
-                return true
-            } else {
-                logout(); return false;
+                return true;
             }
         } catch(error) {logout(); return false; }
         

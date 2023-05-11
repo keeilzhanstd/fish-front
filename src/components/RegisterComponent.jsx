@@ -9,6 +9,7 @@ export default function RegisterComponent() {
     const [password, setPassword] = useState('')
     const [checked, setChecked] = useState(false)
     const [errorMessage, setErrorMessage] = useState(false)
+    const [errorMessageText, setErrorMessageText] = useState("")
 
     const authContext = useAuth()
     const navigate = useNavigate()
@@ -38,7 +39,7 @@ export default function RegisterComponent() {
         console.log(resp)
         createCustomer(resp)
         .then((response) => {setErrorMessage(false); navigate('/login')})
-        .catch((error) => setErrorMessage(true))
+        .catch((error) => {setErrorMessage(true); setErrorMessageText(error); console.log(error)})
     }
 
     return (

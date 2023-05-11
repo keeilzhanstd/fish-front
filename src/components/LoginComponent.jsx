@@ -30,6 +30,7 @@ export default function LoginComponent() {
     return (
         <div className="container">
             <div className="loginForm">
+            {errorMessage && <div className="errorMessage alert alert-danger">Authentication failed</div>}
                 <div>
                     <label>Username</label>
                     <input type="text" name="username" value={username} onChange={handleUsernameChange}/>
@@ -40,8 +41,6 @@ export default function LoginComponent() {
                 </div>
                 <button type="button" className="btn btn-success" name="loginbtn" onClick={handleSubmit}>Login</button>
                 <button type="button" className="btn btn-primary" name="regbtn" onClick={() => navigate(`/register`)}>Register</button>
-                {errorMessage && <div className="errorMessage">Authentication failed</div>}
-
             </div>
         </div>
     )

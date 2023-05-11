@@ -15,7 +15,7 @@ export default function HeaderComponent() {
         <div className="container">
             <div className="row">
                 <nav className="navbar navbar-expand-lg">
-                    <Link className="navbar-brand ms-2 fs-2 fw-bold text-black" to="/home">Codefish</Link>
+                    <Link className="navbar-brand ms-2 fs-2 fw-bold text-black" to="/home">Codefish {process.env.REACT_APP_ENV}</Link>
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav">
                             {isAuthenticated && <li className="nav-item fs-5"><Link className="nav-link" to="/records">MRS</Link></li>}

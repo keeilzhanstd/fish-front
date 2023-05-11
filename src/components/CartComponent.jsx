@@ -37,7 +37,7 @@ export default function CartComponent(){
             getCustomerByUsername(authContext.user.username)
             .then((response) => {
 
-                if(response.data.payment.length !== 0) {
+                if(response.data.payment_id.length !== 0) {
                     setEmptyCartWarning(false)
                     let resp = {}
                     resp.customer = response.data

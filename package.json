@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start:dev": "env-cmd -f .env.dev react-scripts start",
-    "start:prod": "env-cmd -f .env.prod react-scripts start",
+    "start:prod": "env-cmd -f .env.production react-scripts start",
     "start:qa": "env-cmd -f .env.qa react-scripts start",
 
     "build": "react-scripts build",

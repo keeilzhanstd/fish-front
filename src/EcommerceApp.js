@@ -12,10 +12,6 @@ import OrderComponent from './components/OrderComponent'
 import RegisterComponent from './components/RegisterComponent'
 import AddPaymentComponent from './components/AddPaymentComponent'
 import PaymentComponent from './components/PaymentComponent'
-import ListRecordsComponent from './components/mrs/ListRecordsComponent'
-import RecordComponent from './components/mrs/RecordComponent'
-import AppointmentComponents from './components/mrs/AppointmentComponents'
-import UpdateRecordComponent from './components/mrs/UpdateRecordComponent'
 
 import AuthProvider, { useAuth } from './components/auth/AuthContext'
 import FooterComponent from './components/FooterComponent'
@@ -100,30 +96,6 @@ export default function EcommerceApp() {
                         <Route path='/product/add' element={
                             <AuthenticatedRoute>
                                 <Product />
-                            </AuthenticatedRoute>
-                        }/>
-
-                        <Route path='/records' element={
-                            <AuthenticatedRoute>
-                                <ListRecordsComponent/>
-                            </AuthenticatedRoute>
-                        }/>
-
-                        <Route path='/records/:id' element={
-                            <AuthenticatedRoute>
-                                <RecordComponent/>
-                            </AuthenticatedRoute>
-                        }/>
-
-                        <Route path='/records/:id/update' element={
-                            <AuthenticatedRoute>
-                                <UpdateRecordComponent/>
-                            </AuthenticatedRoute>
-                        }/>
-
-                        <Route path='/records/:id/:name/appointments/:aid' element={
-                            <AuthenticatedRoute>
-                                <AppointmentComponents/>
                             </AuthenticatedRoute>
                         }/>
 

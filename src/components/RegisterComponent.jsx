@@ -7,7 +7,6 @@ export default function RegisterComponent() {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [checked, setChecked] = useState(false)
     const [errorMessage, setErrorMessage] = useState(false)
     const [errorMessageText, setErrorMessageText] = useState("")
 
@@ -17,26 +16,16 @@ export default function RegisterComponent() {
     function handleUsernameChange(event) {
         setUsername(event.target.value)
     }
-
-    const handleChange = () => {
-        setChecked(!checked);
-      };
       
     function handlePasswordChange(event) {
         setPassword(event.target.value)
     }
 
     async function handleSubmit() {
-
         let resp = {}
         resp.username = username;
         resp.password = password;
         resp.role = "ROLE_USER"
-        if(checked) {
-            resp.role = "ROLE_ADMIN,ROLE_USER"
-        }
-
-        console.log(resp)
         createCustomer(resp)
         .then((response) => {setErrorMessage(false); navigate('/login')})
         .catch((error) => {setErrorMessage(true); setErrorMessageText(error); console.log(error)})
@@ -54,15 +43,8 @@ export default function RegisterComponent() {
                     <label>Password</label>
                     <input type="password" name="password" value={password} onChange={handlePasswordChange}/>
                 </div>
-                <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={handleChange}
-                />
-                <label>Give user ADMIN role?</label>
                 <br></br>
                 <button type="button" className="btn btn-success" name="loginbtn" onClick={handleSubmit}>Register</button>
-                
             </div>
         </div>
     )

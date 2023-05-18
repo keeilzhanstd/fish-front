@@ -32,11 +32,13 @@ export default function RegisterComponent() {
         resp.username = username;
         resp.password = password;
         resp.role = "ROLE_USER"
-        if(checked) {
-            resp.role = "ROLE_ADMIN,ROLE_USER"
-        }
 
-        console.log(resp)
+        if(process.env.REACT_APP_ALLOW_FEATURE_ACCESS) {
+            if(checked) {
+                resp.role = "ROLE_ADMIN,ROLE_USER"
+            }
+        }
+        
         createCustomer(resp)
         .then((response) => {setErrorMessage(false); navigate('/login')})
         .catch((error) => {setErrorMessage(true); setErrorMessageText(error); console.log(error)})
@@ -54,12 +56,16 @@ export default function RegisterComponent() {
                     <label>Password</label>
                     <input type="password" name="password" value={password} onChange={handlePasswordChange}/>
                 </div>
-                <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={handleChange}
-                />
-                <label>Give user ADMIN role?</label>
+                {process.env.REACT_APP_ALLOW_FEATURE_ACCESS == 1 &&
+                <>
+                    <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={handleChange}
+                    />
+                    <label>Give user ADMIN role?</label>
+                </>
+                }
                 <br></br>
                 <button type="button" className="btn btn-success" name="loginbtn" onClick={handleSubmit}>Register</button>
                 

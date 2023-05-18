@@ -30,6 +30,39 @@ function AuthenticatedRoute({children}) {
     return <Navigate to="/" />
 }
 
+function allowFeatureAccess(){
+    if(process.env.REACT_APP_ALLOW_FEATURE_ACCESS == 1)
+    return (
+        <>
+            <Route path='/records' element={
+                <AuthenticatedRoute>
+                    <ListRecordsComponent/>
+                </AuthenticatedRoute>
+            }/>
+
+            <Route path='/records/:id' element={
+                <AuthenticatedRoute>
+                    <RecordComponent/>
+                </AuthenticatedRoute>
+            }/>
+
+            <Route path='/records/:id/update' element={
+                <AuthenticatedRoute>
+                    <UpdateRecordComponent/>
+                </AuthenticatedRoute>
+            }/>
+
+            <Route path='/records/:id/:name/appointments/:aid' element={
+                <AuthenticatedRoute>
+                    <AppointmentComponents/>
+                </AuthenticatedRoute>
+            }/>
+        </>
+    )
+    
+    return <></>
+}
+
 export default function EcommerceApp() {
     return (
         <div className="container">
@@ -103,29 +136,7 @@ export default function EcommerceApp() {
                             </AuthenticatedRoute>
                         }/>
 
-                        <Route path='/records' element={
-                            <AuthenticatedRoute>
-                                <ListRecordsComponent/>
-                            </AuthenticatedRoute>
-                        }/>
-
-                        <Route path='/records/:id' element={
-                            <AuthenticatedRoute>
-                                <RecordComponent/>
-                            </AuthenticatedRoute>
-                        }/>
-
-                        <Route path='/records/:id/update' element={
-                            <AuthenticatedRoute>
-                                <UpdateRecordComponent/>
-                            </AuthenticatedRoute>
-                        }/>
-
-                        <Route path='/records/:id/:name/appointments/:aid' element={
-                            <AuthenticatedRoute>
-                                <AppointmentComponents/>
-                            </AuthenticatedRoute>
-                        }/>
+                        {allowFeatureAccess()}
 
                     </Routes>
                 <FooterComponent/>

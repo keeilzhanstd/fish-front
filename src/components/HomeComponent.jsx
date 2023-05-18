@@ -120,7 +120,7 @@ export default function HomeComponent() {
                                         <div className="card-body">
                                             <h5 className="card-title">{product.name}</h5>
                                             <p className="card-text">{product.description}</p>
-                                            <p className="card-text">{product.price}$</p>
+                                            <p className="card-text"><b>{product.price}$</b></p>
                                             <button type="button" className="btn btn-primary" onClick={() => addProduct(product)}> {loading === product.id && animation} Add to cart</button>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@ export default function HomeComponent() {
                                     <div className="card-body">
                                         <h5 className="card-title">{product.name}</h5>
                                         <p className="card-text">{product.description}</p>
-                                        <p className="card-text">{product.price}$</p>
+                                        <p className="card-text"><b>{product.price}$</b></p>
                                         <button type="button" className="btn btn-primary" onClick={() => addProduct(product)}> {loading === product.id && animation} Add to cart</button>
                                     </div>
                                 </div>
